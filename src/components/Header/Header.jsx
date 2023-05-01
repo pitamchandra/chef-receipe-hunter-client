@@ -13,17 +13,16 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mx-auto">
-                        <Nav.Link href="#features">Features</Nav.Link>
-                        <Nav.Link href="#pricing">Pricing</Nav.Link>
+                        <NavLink to="/" style={{margin : '0 8px', textDecoration : 'none',}} className={({isActive}) => isActive ? 'text-warning fw-bold' : 'text-white'}>Home</NavLink>
+                        <NavLink to="/feature" style={{margin : '0 8px', textDecoration : 'none',}} className={({isActive}) => isActive ? 'text-warning fw-bold' : 'text-white'}>Feature</NavLink>
+                       <NavLink to="/lala" style={{margin : '0 8px', textDecoration : 'none',}} className={({isActive}) => isActive ? 'text-warning fw-bold' : 'text-white '}>Lala</NavLink>
                         
                     </Nav>
                     <Nav>
                         <Nav.Link href="">
                             <img src="" alt="user" />
                         </Nav.Link>
-                        <Nav.Link eventKey={2} href="#memes">
-                            <Link to='/login'><button className='btn btn-warning'>Login</button></Link>
-                        </Nav.Link>
+                        <Link to='/login'><button className='btn btn-warning'>Login</button></Link>
                     </Nav>
                     </Navbar.Collapse>
                 </Container>
