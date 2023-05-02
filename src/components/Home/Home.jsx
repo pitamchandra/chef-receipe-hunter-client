@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import banner from '../../assets/banner.jpg'
 import HeadingTitle from '../HeadingTitle/headingTitle';
 import Card from 'react-bootstrap/Card';
@@ -8,9 +8,19 @@ import cardImg from '../../assets/about.jpg'
 import cardImg2 from '../../assets/about-img-2.jpg'
 import cardImg3 from '../../assets/about-img-3.jpg'
 import { Button, Form } from 'react-bootstrap';
+import Chefs from '../Chefs/Chefs';
 
 
 const Home = () => {
+
+    const [chefs, setChefs] = useState([]);
+    useEffect(()=>{
+        fetch('/public/data.json')
+        .then(res => res.json())
+        .then(chefs => setChefs(chefs))
+        .catch(error => console.log(error))
+    },[])
+
     const styles = {
         backgroundImage: `url(${banner})`,
         backgroundSize: 'cover',
@@ -74,7 +84,22 @@ const Home = () => {
                 </Row>
             </div>
         </div>
-        {/* chef section here */}
+        <div className="py-5">
+            <HeadingTitle
+                title = 'Our Chef&apos;s'
+                description= 'We are fluent in making appetizing meals.'
+            ></HeadingTitle>
+            <div className="container mt-5">
+                <Row xs={1} md={2} lg={3} className="g-4">
+                {
+                    chefs.map(chef => <Chefs
+                        key={chef.id}
+                        chef = {chef}
+                    ></Chefs>)
+                }
+                </Row>
+            </div>
+        </div>
         <div className='py-5'>
             <HeadingTitle
                 title = 'Contact us'
