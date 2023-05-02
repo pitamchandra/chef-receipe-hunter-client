@@ -7,7 +7,7 @@ import Row from 'react-bootstrap/Row';
 import cardImg from '../../assets/about.jpg'
 import cardImg2 from '../../assets/about-img-2.jpg'
 import cardImg3 from '../../assets/about-img-3.jpg'
-import { Button } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 
 
 const Home = () => {
@@ -72,6 +72,30 @@ const Home = () => {
                         </Card>
                     </Col>
                 </Row>
+            </div>
+        </div>
+        {/* chef section here */}
+        <div className='py-5'>
+            <HeadingTitle
+                title = 'Contact us'
+                description= 'you can contact us any way'
+            ></HeadingTitle>
+            <div className="container bg-secondary p-5 rounded">
+            <Form className=''>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>Your Name</Form.Label>
+                    <Form.Control type="text" placeholder="Type your name" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control type="email" placeholder="Type your email" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                    <Form.Label>Your message</Form.Label>
+                    <Form.Control as="textarea" rows={3} />
+                </Form.Group>
+                <Button className='w-100' variant="warning">Send your message</Button>
+            </Form>
             </div>
         </div>
         </>
