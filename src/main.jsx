@@ -9,6 +9,7 @@ import Home from './components/Home/Home.jsx'
 import Login from './components/Login/Login';
 import Register from './components/Registration/Register';
 import AuthProvider from './Provider/AuthProvider';
+import 'react-toastify/dist/ReactToastify.css';
 
 const router = createBrowserRouter([
   {
