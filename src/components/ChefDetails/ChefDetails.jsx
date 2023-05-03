@@ -3,6 +3,7 @@ import banner from '../../assets/chefBg.jpg'
 import { useLoaderData } from 'react-router-dom';
 import { Container, Row, Col, } from "react-bootstrap";
 import Recipes from '../../Recipes/Recipes';
+import LazyLoad from 'react-lazy-load';
 
 
 const ChefDetails = () => {
@@ -12,7 +13,7 @@ const ChefDetails = () => {
         backgroundImage: `url(${banner})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        padding: '100px 0', 
+        height: '100vh', 
         display: 'flex',
         alignItems: 'center'
       };
@@ -32,8 +33,8 @@ const ChefDetails = () => {
                             </div>
                         </Col>
                         <Col>
-                            <div className='bg-warning rounded p-3 w-md-75 ms-auto'>
-                                <img style={{width : '100%', }} src={photo} alt="chef image" />
+                            <div className='rounded p-3 w-md-75 ms-auto'>
+                                <LazyLoad height={550} className='d-flex align-items-center' threshold={0.95}><img style={{width : '100%', }} src={photo} alt="chef image" /></LazyLoad>
                             </div>
                         </Col>
                     </Row>
