@@ -7,7 +7,6 @@ import { AuthContext } from '../../Provider/AuthProvider';
 
 const Header = () => {
     const {user,logOut} = useContext(AuthContext)
-
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -17,19 +16,20 @@ const Header = () => {
                     <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mx-auto">
                         <NavLink to="/" style={{margin : '0 8px', textDecoration : 'none',}} className={({isActive}) => isActive ? 'text-warning fw-bold' : 'text-white'}>Home</NavLink>
-                        <NavLink to="/feature" style={{margin : '0 8px', textDecoration : 'none',}} className={({isActive}) => isActive ? 'text-warning fw-bold' : 'text-white'}>Feature</NavLink>
                        <NavLink to="/blog" style={{margin : '0 8px', textDecoration : 'none',}} className={({isActive}) => isActive ? 'text-warning fw-bold' : 'text-white '}>Blog</NavLink>
                         
                     </Nav>
                     <Nav>
                         {
                             user ? 
+                            <div className='d-md-flex align-items-center gap-3'>
                             <Nav.Link href="">
                                 <img style={{width : '50px', height: '50px', borderRadius: '50%'}} title={user?.displayName} src={user?.photoURL} alt="user" />
-                            </Nav.Link>:
+                            </Nav.Link>
+                            <Link to='/login'><button onClick={logOut} className='btn btn-warning'>sign out</button></Link>
+                            </div>:
                             <Link to='/login'><button className='btn btn-warning'>Login</button></Link>
                         }
-                        <Link to='/login'><button onClick={logOut} className='btn btn-warning'>sign out</button></Link>
                     </Nav>
                     </Navbar.Collapse>
                 </Container>
