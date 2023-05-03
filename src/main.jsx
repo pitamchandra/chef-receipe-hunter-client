@@ -10,6 +10,8 @@ import Login from './components/Login/Login';
 import Register from './components/Registration/Register';
 import AuthProvider from './Provider/AuthProvider';
 import 'react-toastify/dist/ReactToastify.css';
+import '@smastrom/react-rating/style.css'
+import ChefDetails from './components/ChefDetails/ChefDetails';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +30,12 @@ const router = createBrowserRouter([
       {
         path : '/register',
         element : <Register></Register>
+      },
+      {
+        path : '/chef/:id',
+        element : <ChefDetails></ChefDetails>,
+        loader : ({params}) => fetch(`https://chef-table-bd-server-pitamchandra.vercel.app/chef/${params.id}`)
+
       }
     ]
   }

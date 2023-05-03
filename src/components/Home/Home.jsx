@@ -15,7 +15,7 @@ const Home = () => {
 
     const [chefs, setChefs] = useState([]);
     useEffect(()=>{
-        fetch('/public/data.json')
+        fetch('https://chef-table-bd-server-pitamchandra.vercel.app/chef')
         .then(res => res.json())
         .then(chefs => setChefs(chefs))
         .catch(error => console.log(error))
