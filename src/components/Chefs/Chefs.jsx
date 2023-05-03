@@ -13,7 +13,7 @@ const Chefs = ({chef}) => {
               <Card.Text>Experience : {years_experience} years</Card.Text>
               <Card.Text>Total Recipes : {recipes.length}</Card.Text>
               <Card.Text>Like : {like}</Card.Text>
-              <Link to={`chef/${id}`}><Button variant='warning'>View Recipes</Button></Link>
+              <Link to={`/chef-recipes/${id}`}><Button variant='warning'>View Recipes</Button></Link>
             </Card.Body>
           </Card>
         </Col>

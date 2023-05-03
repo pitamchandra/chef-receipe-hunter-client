@@ -1,7 +1,7 @@
 import React from 'react';
 import banner from '../../assets/chefBg.jpg'
 import { useLoaderData } from 'react-router-dom';
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Container, Row, Col, } from "react-bootstrap";
 import Recipes from '../../Recipes/Recipes';
 
 
@@ -25,14 +25,14 @@ const ChefDetails = () => {
                         <Col>
                             <h1 className=''>Chef Name: <span className='text-warning'>{name}</span></h1>
                             <p>{description}</p>
-                            <div className="d-flex align-items-center justify-content-between">
+                            <div className="d-md-flex align-items-center justify-content-between">
                                 <p>Experience : <span className='text-warning'>{years_experience}</span> years</p>
                                 <p>Total Recipes : <span className='text-warning'>{recipes.length}</span></p>
                                 <p>Like : <span className='text-warning'>{like}</span></p>
                             </div>
                         </Col>
                         <Col>
-                            <div className='bg-warning rounded p-3 w-75 ms-auto'>
+                            <div className='bg-warning rounded p-3 w-md-75 ms-auto'>
                                 <img style={{width : '100%', }} src={photo} alt="chef image" />
                             </div>
                         </Col>
