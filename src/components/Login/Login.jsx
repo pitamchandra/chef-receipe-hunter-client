@@ -1,12 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link  } from "react-router-dom";
+import { Link, useLocation, useNavigate  } from "react-router-dom";
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const Login = () => {
     const {login} = useContext(AuthContext)
-
+    const navigate = useNavigate()
+    const location = useLocation()
+    const path = location?.state?.pathname || '/';
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
 
@@ -22,6 +24,7 @@ const Login = () => {
             const loggedUser = result.user;
             console.log(loggedUser)
             setSuccess('Login Successfully!')
+            navigate(path)
         })
         .catch(error =>{
             setError(error.message)
@@ -50,7 +53,7 @@ const Login = () => {
                 {
                     success && <Form.Text className='mt-3 d-block text-success'>{success}</Form.Text>
                 }
-                <Form.Text className='mt-3 d-block'>Don&apos;t have an account? <Link to='/register'>Register</Link> </Form.Text>
+                <Form.Text className='mt-3 d-block'>Don&apos;t have an account? <Link to='/register' state={location?.state}>Register</Link> </Form.Text>
             </Form>
             <div className='my-3 d-flex align-items-center gap-3'>
                 <div className="w-100 border"></div>

@@ -1,13 +1,16 @@
 import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { ToastContainer, toast } from 'react-toastify';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
     const {register} = useContext(AuthContext)
+    const navigate = useNavigate()
     const [error, setError] = useState('')
+    const location = useLocation()
+    const path = location?.state?.pathname || '/';
 
     const handleSubmit = (e) =>{
         e.preventDefault();
@@ -26,6 +29,7 @@ const Register = () => {
             const createdUser = result.user;
             console.log(createdUser);
             handleUser(createdUser, name, photo)
+            navigate(path)
         })
         .catch(error =>{
             setError(error.message)

@@ -13,6 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import '@smastrom/react-rating/style.css'
 import ChefDetails from './components/ChefDetails/ChefDetails';
 import PrivateRoute from './Private/PrivateRoute';
+import Blog from './components/Blog/Blog';
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
         path : '/chef/:id',
         element : <PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>,
         loader : ({params}) => fetch(`https://chef-table-bd-server-pitamchandra.vercel.app/chef/${params.id}`)
+      },
+      {
+        path : '/blog',
+        element : <Blog></Blog>
       }
     ]
   }

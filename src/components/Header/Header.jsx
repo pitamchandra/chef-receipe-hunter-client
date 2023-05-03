@@ -6,7 +6,7 @@ import { NavLink, Link  } from "react-router-dom";
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const Header = () => {
-    const {user} = useContext(AuthContext)
+    const {user,logOut} = useContext(AuthContext)
 
     return (
         <div>
@@ -18,7 +18,7 @@ const Header = () => {
                     <Nav className="mx-auto">
                         <NavLink to="/" style={{margin : '0 8px', textDecoration : 'none',}} className={({isActive}) => isActive ? 'text-warning fw-bold' : 'text-white'}>Home</NavLink>
                         <NavLink to="/feature" style={{margin : '0 8px', textDecoration : 'none',}} className={({isActive}) => isActive ? 'text-warning fw-bold' : 'text-white'}>Feature</NavLink>
-                       <NavLink to="/lala" style={{margin : '0 8px', textDecoration : 'none',}} className={({isActive}) => isActive ? 'text-warning fw-bold' : 'text-white '}>Lala</NavLink>
+                       <NavLink to="/blog" style={{margin : '0 8px', textDecoration : 'none',}} className={({isActive}) => isActive ? 'text-warning fw-bold' : 'text-white '}>Blog</NavLink>
                         
                     </Nav>
                     <Nav>
@@ -29,6 +29,7 @@ const Header = () => {
                             </Nav.Link>:
                             <Link to='/login'><button className='btn btn-warning'>Login</button></Link>
                         }
+                        <Link to='/login'><button onClick={logOut} className='btn btn-warning'>sign out</button></Link>
                     </Nav>
                     </Navbar.Collapse>
                 </Container>
