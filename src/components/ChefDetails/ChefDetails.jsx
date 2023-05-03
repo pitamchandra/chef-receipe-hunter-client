@@ -28,7 +28,7 @@ const ChefDetails = () => {
                             <div className="d-flex align-items-center justify-content-between">
                                 <p>Experience : <span className='text-warning'>{years_experience}</span> years</p>
                                 <p>Total Recipes : <span className='text-warning'>{recipes.length}</span></p>
-                                <p>Like : {like}</p>
+                                <p>Like : <span className='text-warning'>{like}</span></p>
                             </div>
                         </Col>
                         <Col>

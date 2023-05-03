@@ -1,13 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Social = (props) => {
-    const {logInWithGoogle} = useContext(AuthContext)
+    const {logInWithGoogle,logInWithGithub} = useContext(AuthContext)
     const path = props.path;
     const navigate = useNavigate()
-    console.log(path);
+
     const handleGoogle = () =>{
         logInWithGoogle()
         .then(result =>{
@@ -16,7 +17,18 @@ const Social = (props) => {
             navigate(path)
         })
         .catch(error =>{
-            setError(error);
+            toast(error.message);
+        })
+    }
+    const handleGithub = () =>{
+        logInWithGithub()
+        .then(result =>{
+            const createdUser = result.user;
+            console.log(createdUser);
+            navigate(path)
+        })
+        .catch(error =>{
+            toast(error.message);
         })
     }
     return (
@@ -30,8 +42,9 @@ const Social = (props) => {
                 <button onClick={handleGoogle} className='btn btn-outline-warning w-100'> <FaGoogle className='text-primary'></FaGoogle> Continue with Google</button>
             </div>
             <div>
-                <button className='btn btn-outline-warning w-100 mt-3'> <FaGithub className='text-black'></FaGithub> Continue with Github</button>
+                <button onClick={handleGithub} className='btn btn-outline-warning w-100 mt-3'> <FaGithub className='text-black'></FaGithub> Continue with Github</button>
             </div>
+            <ToastContainer></ToastContainer>
         </>
     );
 };
