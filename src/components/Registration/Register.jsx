@@ -4,6 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
+import Social from '../SocialLogin/Social';
 
 const Register = () => {
     const {register} = useContext(AuthContext)
@@ -71,6 +72,7 @@ const Register = () => {
                 }
                 <Form.Text className='mt-3 d-block'>Already have an account? <Link to='/login'>Login</Link> </Form.Text>
             </Form>
+            <Social path = {path}></Social>
             <ToastContainer />
         </div>
     );

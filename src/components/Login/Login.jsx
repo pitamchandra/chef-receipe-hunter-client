@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate  } from "react-router-dom";
 import { AuthContext } from '../../Provider/AuthProvider';
+import Social from '../SocialLogin/Social';
 
 const Login = () => {
-    const {login} = useContext(AuthContext)
+    const {login,} = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
     const path = location?.state?.pathname || '/';
@@ -29,8 +29,8 @@ const Login = () => {
         .catch(error =>{
             setError(error.message)
         })
-        
     }
+    
     return (
         <div style={{width: '300px', margin : '20px auto'}}>
             <h3>Please Login</h3>
@@ -55,17 +55,7 @@ const Login = () => {
                 }
                 <Form.Text className='mt-3 d-block'>Don&apos;t have an account? <Link to='/register' state={location?.state}>Register</Link> </Form.Text>
             </Form>
-            <div className='my-3 d-flex align-items-center gap-3'>
-                <div className="w-100 border"></div>
-                <span>OR</span>
-                <div className="w-100 border"></div>
-            </div>
-            <div>
-                <button className='btn btn-outline-warning w-100'> <FaGoogle className='text-primary'></FaGoogle> Continue with Google</button>
-            </div>
-            <div>
-                <button className='btn btn-outline-warning w-100 mt-3'> <FaGithub className='text-black'></FaGithub> Continue with Github</button>
-            </div>
+            <Social path={path}></Social>
         </div>
     );
 };
