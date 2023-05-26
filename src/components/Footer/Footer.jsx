@@ -21,18 +21,18 @@ const Footer = () => {
           <Col sm={12} md={3} className="p-3 text-light text-md-left">
             <h5>Quick Links</h5>
             <ul className="list-unstyled">
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="#">Recipes</Link></li>
-              <li><Link to="#">About Us</Link></li>
-              <li><Link to="#">Contact Us</Link></li>
+              <li><Link to="/" className='text-warning'>Home</Link></li>
+              <li><Link to="#" className='text-warning'>Recipes</Link></li>
+              <li><Link to="#" className='text-warning'>About Us</Link></li>
+              <li><Link to="#" className='text-warning'>Contact Us</Link></li>
             </ul>
           </Col>
           <Col sm={12} md={3} className="p-3 text-light text-md-left">
             <h5>Follow Us</h5>
             <ul className="list-inline">
-              <li className="list-inline-item bg-warning fs-5 p-2 m-2"><Link to="#"> <FaFacebookF></FaFacebookF> </Link></li>
-              <li className="list-inline-item bg-warning fs-5 p-2 m-2"><Link to="#"> <FaTwitter></FaTwitter> </Link></li>
-              <li className="list-inline-item bg-warning fs-5 p-2 m-2"><Link to="#"> <FaInstagram></FaInstagram> </Link></li>
+              <li className="list-inline-item bg-warning fs-5 p-2 m-2"><Link to="#"> <FaFacebookF className='text-black'></FaFacebookF> </Link></li>
+              <li className="list-inline-item bg-warning fs-5 p-2 m-2"><Link to="#"> <FaTwitter className='text-black'></FaTwitter> </Link></li>
+              <li className="list-inline-item bg-warning fs-5 p-2 m-2"><Link to="#"> <FaInstagram className='text-black'></FaInstagram> </Link></li>
             </ul>
           </Col>
         </Row>

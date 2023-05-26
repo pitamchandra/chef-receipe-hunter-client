@@ -11,7 +11,7 @@ const Header = () => {
         <div>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
-                    <Navbar.Brand><NavLink to="/" className={`text-white text-decoration-none`}>Chef Table BD</NavLink></Navbar.Brand>
+                    <Navbar.Brand><NavLink to="/" className={`text-white text-decoration-none`}>Chef Table <span className='text-warning'>BD</span></NavLink></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mx-auto">

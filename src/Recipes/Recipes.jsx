@@ -13,7 +13,7 @@ const Recipes = ({recipe}) => {
     }
     return (
         <Col className="mb-4">
-            <Card className='h-100'>
+            <Card className='h-100 bg-secondary-subtle'>
                 <Card.Img variant="top" src={recipe.image} />
                 <Card.Body>
                     <Card.Title className='fs-4'>{name}</Card.Title>
@@ -24,7 +24,7 @@ const Recipes = ({recipe}) => {
                             readOnly
                             />
                         <Card.Text className='flex-grow-1 mt-3 ms-2'> {rating}</Card.Text>
-                        <Button onClick={handleFavorite} variant='warning' disabled = {isFavorite}>Favorite</Button>
+                        <Button onClick={handleFavorite} variant='warning' disabled = {isFavorite}>Add to Favorite</Button>
                     </div>
                     <ListGroup variant="flush">
                         <h5>Ingredients</h5>
